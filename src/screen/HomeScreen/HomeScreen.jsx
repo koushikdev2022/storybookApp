@@ -39,7 +39,10 @@ const HomeScreen = ({ navigation }) => {
           </View>
           <View style={styles.UserTopDetailsSectionRight}>
             <View style={styles.bannerSearchBox}>
-              <TouchableOpacity style={styles.searchBtnBox}>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('Search')}
+                style={styles.searchBtnBox}
+              >
                 <Image
                   source={require('../../../assests/images/search_icon.png')}
                   resizeMode="contain"

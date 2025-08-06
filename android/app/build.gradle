@@ -120,14 +120,14 @@ android {
         }
     }
 
-    applicationVariants.all { variant ->
-        if (variant.buildType.name == "release") {
-            variant.outputs.all { output ->
-                def newApkName = "echohive_app.apk"
-                outputFileName = newApkName
-            }
-        }
-    }
+    // applicationVariants.all { variant ->
+    //     if (variant.buildType.name == "release") {
+    //         variant.outputs.all { output ->
+    //             def newApkName = "echohive_app.apk"
+    //             outputFileName = newApkName
+    //         }
+    //     }
+    // }
 }
 
 dependencies {

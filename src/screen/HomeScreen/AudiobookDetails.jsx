@@ -92,7 +92,10 @@ const AudiobookDetails = ({ navigation }) => {
             />
           </TouchableOpacity>
           <View style={styles.bannerSearchBox}>
-            <TouchableOpacity style={styles.searchBtnBox}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Search')}
+              style={styles.searchBtnBox}
+            >
               <Image
                 source={require('../../../assests/images/search_icon.png')}
                 resizeMode="contain"
@@ -127,7 +130,7 @@ const AudiobookDetails = ({ navigation }) => {
           </TouchableOpacity>
           <View style={{ flex: 1 }}>
             <View style={styles.ReadNowBtnArea}>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate('ReadBook')}>
                 <Text style={styles.ReadNowBtn}>Read Now</Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.PlayNowBtn}>

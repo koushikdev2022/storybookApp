@@ -2,10 +2,8 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import SignIn from '../../screen/SignIn/SignIn';
 import VerifyYourAccount from '../../screen/VerifyYourAccount/VerifyYourAccount';
 import OnboardingScreen from '../../screen/OnboardingScreen/OnboardingScreen';
-import VerifySignInAccount from '../../screen/VerifySignInAccount/VerifySignInAccount';
 import SignUp from '../../screen/SignUp/SignUp';
 import SignUpVendorDetails from '../../screen/SignUpVendorDetails/SignUpVendorDetails';
 import SignUpVendorShopDetails from '../../screen/SignUpVendorShopDetails/SignUpVendorShopDetails';
@@ -15,6 +13,14 @@ import Category from '../../screen/Category/Category';
 import CategoryDetails from '../../screen/Category/CategoryDetails';
 import Profile from '../../screen/Profile/Profile';
 import AudiobookDetails from '../../screen/HomeScreen/AudiobookDetails';
+import Search from '../../screen/Search/Search';
+import ReadBook from '../../screen/ReadBook/ReadBook';
+import GetStarted from '../../screen/GetStarted/GetStarted';
+import Login from '../../screen/Login/Login';
+import VerifyLoginAccount from '../../screen/VerifyLoginAccount/VerifyLoginAccount';
+import Congratulations from '../../screen/Congratulations/Congratulations';
+import EditProfile from '../../screen/Profile/EditProfile';
+import ManageDownloads from '../../screen/ManageDownloads/ManageDownloads';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,23 +39,29 @@ export default function App() {
         <Stack.Screen name="Category" component={Category} />
         <Stack.Screen name="CategoryDetails" component={CategoryDetails} />
         <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="EditProfile" component={EditProfile} />
+        <Stack.Screen name="ManageDownloads" component={ManageDownloads} />
         <Stack.Screen name="AudiobookDetails" component={AudiobookDetails} />
-        <Stack.Screen name="SignIn" component={SignIn} />
+        <Stack.Screen name="Search" component={Search} />
+        <Stack.Screen name="ReadBook" component={ReadBook} />
+        <Stack.Screen name="GetStarted" component={GetStarted} />
+        <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="SignUp" component={SignUp} />
+        <Stack.Screen name="Congratulations" component={Congratulations} />
         <Stack.Screen name="VerifyYourAccount" component={VerifyYourAccount} />
         <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} />
         <Stack.Screen
-          name="VerifySignInAccount"
-          component={VerifySignInAccount}
+          name="VerifyLoginAccount"
+          component={VerifyLoginAccount}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           name="SignUpVendorDetails"
           component={SignUpVendorDetails}
         />
         <Stack.Screen
           name="SignUpVendorShopDetails"
           component={SignUpVendorShopDetails}
-        />
+        /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

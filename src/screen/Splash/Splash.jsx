@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   container: {
     width: responsiveWidth(100),
     height: responsiveHeight(100),
-    backgroundColor: '#1E102F',
+    backgroundColor: '#8E32FF',
   },
   centerView: {
     flex: 1,

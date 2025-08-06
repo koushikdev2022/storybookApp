@@ -13,8 +13,7 @@ import {
   responsiveHeight,
   responsiveFontSize,
 } from 'react-native-responsive-dimensions';
-
-const VerifiedSignUpAccount = ({ navigation }) => {
+const VerifyLoginAccount = ({ navigation }) => {
   const [otp, setOtp] = useState(['', '', '', '']);
   const inputRefs = useRef([]);
 
@@ -26,6 +25,7 @@ const VerifiedSignUpAccount = ({ navigation }) => {
       inputRefs.current[index + 1].focus();
     }
   };
+
   return (
     <ImageBackground
       source={require('../../../assests/images/login_bg.png')}
@@ -35,7 +35,7 @@ const VerifiedSignUpAccount = ({ navigation }) => {
       <View style={styles.container}>
         {/* Back Button & Logo */}
         <View style={styles.header}>
-          <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Login')}>
             <Image source={require('../../../assests/images/back_arrow.png')} />
           </TouchableOpacity>
 
@@ -81,7 +81,7 @@ const VerifiedSignUpAccount = ({ navigation }) => {
         {/* Verify Button */}
         <View style={styles.continueButtonWrap}>
           <TouchableOpacity
-            onPress={() => navigation.navigate('Congratulations')}
+            onPress={() => navigation.navigate('MainApp')}
             style={styles.verifyButton}
           >
             <Text style={styles.verifyButtonText}>Verify Code</Text>
@@ -92,7 +92,7 @@ const VerifiedSignUpAccount = ({ navigation }) => {
   );
 };
 
-export default VerifiedSignUpAccount;
+export default VerifyLoginAccount;
 
 const styles = StyleSheet.create({
   container: {

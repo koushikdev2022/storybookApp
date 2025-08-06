@@ -21,6 +21,12 @@ const ITEM_WIDTH = Dimensions.get('window').width / NUM_COLUMNS;
 
 import { useNavigation } from '@react-navigation/native';
 
+import Entypo from 'react-native-vector-icons/Entypo';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import Feather from 'react-native-vector-icons/Feather';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+
 const Profile = () => {
   const navigation = useNavigation();
   return (
@@ -39,6 +45,7 @@ const Profile = () => {
             <Text style={styles.FavouriteAudiobookSectionTitle}>Profile</Text>
           </View>
         </View>
+
         <View style={styles.profileWrapper}>
           <View style={styles.UserTopDetailsSection}>
             <View style={styles.UserTopDetailsSectionLeft}>
@@ -54,35 +61,76 @@ const Profile = () => {
             </View>
             <View style={styles.UserTopDetailsSectionRight}>
               <TouchableOpacity
-              //title="Go Back"
-              //onPress={() => navigation.goBack()}
+                onPress={() => navigation.navigate('EditProfile')}
               >
-                <Image
-                  source={require('../../../assests/images/edit_profile_icon.png')}
-                  //style={[styles.backArrow, { tintColor: '#536EFF' }]}
-                  resizeMode="contain"
-                />
+                <View style={styles.editPoint}>
+                  <MaterialIcons name="edit" size={16} color="#ffffff" />
+                </View>
               </TouchableOpacity>
             </View>
           </View>
         </View>
+
         <View style={styles.ProfileDetailsListSection}>
           <TouchableOpacity style={styles.ProfileDetailsListDetails}>
-            <Text style={styles.ProfileDetailsTitle}>Subscription plans</Text>
+            <View style={styles.ProfileNavPoint}>
+              <View style={styles.ProfileNavPointLeft}>
+                <FontAwesome name="list-alt" size={18} color="#ffffff" />
+                <Text style={styles.ProfileDetailsTitle}>
+                  Subscription plans
+                </Text>
+              </View>
+              <View>
+                <Feather name="chevron-right" size={22} color="#ffffff" />
+              </View>
+            </View>
           </TouchableOpacity>
           <TouchableOpacity style={styles.ProfileDetailsListDetails}>
-            <Text style={styles.ProfileDetailsTitle}>Language Preferences</Text>
+            <View style={styles.ProfileNavPoint}>
+              <View style={styles.ProfileNavPointLeft}>
+                <Feather name="globe" size={18} color="#ffffff" />
+                <Text style={styles.ProfileDetailsTitle}>
+                  Language Preferences
+                </Text>
+              </View>
+              <View>
+                <Feather name="chevron-right" size={22} color="#ffffff" />
+              </View>
+            </View>
           </TouchableOpacity>
           <TouchableOpacity style={styles.ProfileDetailsListDetails}>
-            <Text style={styles.ProfileDetailsTitle}>Support</Text>
+            <View style={styles.ProfileNavPoint}>
+              <View style={styles.ProfileNavPointLeft}>
+                <MaterialIcons name="support-agent" size={18} color="#ffffff" />
+                <Text style={styles.ProfileDetailsTitle}>Support</Text>
+              </View>
+              <View>
+                <Feather name="chevron-right" size={22} color="#ffffff" />
+              </View>
+            </View>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.ProfileDetailsListDetails}>
-            <Text style={styles.ProfileDetailsTitle}>Manage Downloads</Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('ManageDownloads')}
+            style={styles.ProfileDetailsListDetails}
+          >
+            <View style={styles.ProfileNavPoint}>
+              <View style={styles.ProfileNavPointLeft}>
+                <AntDesign name="download" size={18} color="#ffffff" />
+                <Text style={styles.ProfileDetailsTitle}>Manage Downloads</Text>
+              </View>
+              <View>
+                <Feather name="chevron-right" size={22} color="#ffffff" />
+              </View>
+            </View>
           </TouchableOpacity>
         </View>
         <View style={styles.ProfileLogoutWrap}>
-          <TouchableOpacity>
-            <Text style={styles.ProfileLogoutButton}>Log out</Text>
+          <TouchableOpacity
+            style={styles.ProfileLogoutButton}
+            onPress={() => navigation.navigate('GetStarted')}
+          >
+            <Entypo name="log-out" size={20} color="#000000" />
+            <Text style={styles.ProfileLogoutButtonText}>Log out</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -168,6 +216,7 @@ const styles = StyleSheet.create({
     lineHeight: 26,
     color: '#ffffff',
     fontWeight: '400',
+    marginLeft: 8,
   },
   ProfileLogoutWrap: {
     marginVertical: 50,
@@ -177,14 +226,40 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   ProfileLogoutButton: {
-    color: '#000000',
-    fontSize: 17,
-    lineHeight: 44,
     backgroundColor: '#ffffff',
     borderRadius: 25,
-    fontWeight: '600',
+
     paddingHorizontal: 30,
     width: 136,
     textAlign: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    paddingVertical: 10,
+  },
+  ProfileLogoutButtonText: {
+    color: '#000000',
+    fontSize: 18,
+    fontWeight: '600',
+    marginLeft: 3,
+  },
+  ProfileNavPoint: {
+    flexDirection: 'row',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  ProfileNavPointLeft: {
+    flexDirection: 'row',
+    display: 'flex',
+    alignItems: 'center',
+  },
+  editPoint: {
+    backgroundColor: '#202020',
+    width: 25,
+    height: 25,
+    borderRadius: 4,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

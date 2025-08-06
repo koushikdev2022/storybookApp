@@ -14,7 +14,7 @@ import {
   responsiveFontSize,
 } from 'react-native-responsive-dimensions';
 
-const VerifiedSignUpAccount = ({ navigation }) => {
+const Congratulations = ({ navigation }) => {
   const [otp, setOtp] = useState(['', '', '', '']);
   const inputRefs = useRef([]);
 
@@ -35,10 +35,6 @@ const VerifiedSignUpAccount = ({ navigation }) => {
       <View style={styles.container}>
         {/* Back Button & Logo */}
         <View style={styles.header}>
-          <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
-            <Image source={require('../../../assests/images/back_arrow.png')} />
-          </TouchableOpacity>
-
           <View style={styles.logoTextIcon}>
             <Image
               source={require('../../../assests/images/logo2.png')}
@@ -47,44 +43,22 @@ const VerifiedSignUpAccount = ({ navigation }) => {
           </View>
         </View>
 
+        <View style={styles.congratulationsLogo}>
+          <Image source={require('../../../assests/images/congo_icon.png')} />
+        </View>
         {/* Title & Subtext */}
-        <Text style={styles.title}>OTP Verification</Text>
         <Text style={styles.subtitle}>
-          We've sent a verification code to your mobile number ending in **1234
-          and your email address ending in @example.com.
+          Your email and phone number have been successfully verified. You're
+          all set to continue.
         </Text>
-
-        {/* OTP Inputs */}
-        <View style={styles.otpContainer}>
-          {otp.map((digit, index) => (
-            <TextInput
-              key={index}
-              style={styles.otpBox}
-              keyboardType="numeric"
-              maxLength={1}
-              value={digit}
-              onChangeText={text => handleChange(text, index)}
-              ref={ref => (inputRefs.current[index] = ref)}
-            />
-          ))}
-        </View>
-
-        {/* Timer and Resend */}
-        <Text style={styles.timer}>00:24</Text>
-        <View style={styles.resendWrap}>
-          <Text style={styles.resendText}>Didn’t receive the code?</Text>
-          <TouchableOpacity>
-            <Text style={styles.resendLink}>Click to resend</Text>
-          </TouchableOpacity>
-        </View>
 
         {/* Verify Button */}
         <View style={styles.continueButtonWrap}>
           <TouchableOpacity
-            onPress={() => navigation.navigate('Congratulations')}
+            onPress={() => navigation.navigate('MainApp')}
             style={styles.verifyButton}
           >
-            <Text style={styles.verifyButtonText}>Verify Code</Text>
+            <Text style={styles.verifyButtonText}>Continue</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -92,7 +66,7 @@ const VerifiedSignUpAccount = ({ navigation }) => {
   );
 };
 
-export default VerifiedSignUpAccount;
+export default Congratulations;
 
 const styles = StyleSheet.create({
   container: {
@@ -103,6 +77,7 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     marginTop: responsiveHeight(5),
     marginBottom: 50,
   },
@@ -143,11 +118,12 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     textAlign: 'center',
-    fontSize: 12,
+    fontSize: 14,
     lineHeight: 18,
     marginTop: responsiveHeight(1),
     color: '#ffffff',
     paddingHorizontal: 20,
+    marginBottom: 5,
   },
   phoneNumber: {
     fontWeight: '500',
@@ -177,10 +153,9 @@ const styles = StyleSheet.create({
   },
   resendText: {
     textAlign: 'center',
-    marginTop: responsiveHeight(0),
+    marginTop: responsiveHeight(1),
     color: '#ffffff',
     fontSize: responsiveFontSize(1.8),
-    marginRight: 2,
   },
   resendLink: {
     color: '#D7B8FF',
@@ -193,12 +168,6 @@ const styles = StyleSheet.create({
     borderRadius: 35,
     alignItems: 'center',
     width: 220,
-  },
-  continueButtonWrap: {
-    flexDirection: 'row',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   verifyButtonText: {
     color: '#fff',
@@ -214,9 +183,10 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   logoTextIcon: {
-    marginLeft: responsiveWidth(15),
     flexDirection: 'row',
-    gap: responsiveWidth(1),
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   usePasswordToSignIn: {
     color: '#1B147F',
@@ -226,11 +196,18 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 10,
   },
-  resendWrap: {
+  congratulationsLogo: {
+    marginTop: 100,
+    marginBottom: 20,
     flexDirection: 'row',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 10,
+  },
+  continueButtonWrap: {
+    flexDirection: 'row',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

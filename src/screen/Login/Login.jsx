@@ -13,7 +13,7 @@ import {
   responsiveHeight,
 } from 'react-native-responsive-dimensions';
 
-const SignUp = ({ navigation }) => {
+const Login = ({ navigation }) => {
   return (
     <ImageBackground
       source={require('../../../assests/images/login_bg.png')}
@@ -35,7 +35,7 @@ const SignUp = ({ navigation }) => {
           </View>
         </View>
         <View style={styles.signInTextAlignment}>
-          <Text style={styles.signInText}>Sign Up</Text>
+          <Text style={styles.signInText}>Log In</Text>
         </View>
 
         <View style={styles.supportArea}>
@@ -49,7 +49,7 @@ const SignUp = ({ navigation }) => {
           {/* Phone Number Input */}
           <View style={styles.phoneInputContainer}>
             <TextInput
-              placeholder="Full Name"
+              placeholder="Enter Mobile Number or Email"
               keyboardType="text"
               style={styles.input}
               placeholderTextColor="#999999"
@@ -57,33 +57,7 @@ const SignUp = ({ navigation }) => {
           </View>
           <View style={styles.phoneInputContainer}>
             <TextInput
-              placeholder="Enter Email Id"
-              keyboardType="email-address"
-              style={styles.input}
-              placeholderTextColor="#999999"
-              secureTextEntry={true}
-            />
-          </View>
-          <View style={styles.phoneInputContainer}>
-            <TextInput
-              placeholder="Enter Mobile Number"
-              keyboardType="text"
-              style={styles.input}
-              placeholderTextColor="#999999"
-            />
-          </View>
-          <View style={styles.phoneInputContainer}>
-            <TextInput
-              placeholder="Enter Password"
-              keyboardType="default"
-              style={styles.input}
-              placeholderTextColor="#999999"
-              secureTextEntry={true}
-            />
-          </View>
-          <View style={styles.phoneInputContainer}>
-            <TextInput
-              placeholder="Confirm Password"
+              placeholder="Password"
               keyboardType="default"
               style={styles.input}
               placeholderTextColor="#999999"
@@ -93,10 +67,10 @@ const SignUp = ({ navigation }) => {
           {/* Sign In Button */}
           <View style={styles.loginContainer}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('VerifiedSignUpAccount')}
+              onPress={() => navigation.navigate('VerifyLoginAccount')}
               style={styles.signInButton}
             >
-              <Text style={styles.signInButtonText}>Create Account</Text>
+              <Text style={styles.signInButtonText}>Log In</Text>
             </TouchableOpacity>
           </View>
 
@@ -129,9 +103,9 @@ const SignUp = ({ navigation }) => {
           {/* Footer Text */}
           <View style={styles.footerWrapper}>
             <Text style={styles.footerText}>
-              Do You Have An Account?
+              Not A Member?
               <TouchableOpacity>
-                <Text style={styles.registerText}>Log In</Text>
+                <Text style={styles.registerText}>Register Now</Text>
               </TouchableOpacity>
             </Text>
           </View>
@@ -141,18 +115,12 @@ const SignUp = ({ navigation }) => {
   );
 };
 
-export default SignUp;
+export default Login;
 
 const styles = StyleSheet.create({
   background: {
     flex: 1,
     position: 'relative',
-  },
-  container: {
-    flex: 1,
-    width: responsiveWidth(100),
-    height: responsiveHeight(100),
-    paddingHorizontal: responsiveWidth(6),
   },
   header: {
     flexDirection: 'row',
@@ -165,8 +133,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: responsiveWidth(1),
   },
+  container: {
+    flex: 1,
+    width: responsiveWidth(100),
+    height: responsiveHeight(100),
+    paddingHorizontal: responsiveWidth(6),
+  },
   signInTextAlignment: {
-    paddingTop: responsiveHeight(0),
+    paddingTop: responsiveHeight(5),
     paddingHorizontal: responsiveWidth(7),
     textAlign: 'center',
   },
@@ -196,7 +170,7 @@ const styles = StyleSheet.create({
   },
   itemContainer: {
     position: 'absolute',
-    top: responsiveHeight(24),
+    top: responsiveHeight(30),
     height: responsiveHeight(90),
     width: responsiveWidth(100),
     borderTopLeftRadius: 30,
@@ -249,8 +223,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     alignItems: 'center',
     marginBottom: 20,
-    marginTop: 10,
-    width: 200,
+    width: 150,
   },
   signInButtonText: {
     color: '#fff',
@@ -327,7 +300,7 @@ const styles = StyleSheet.create({
   // Fixed Bottom
   footerWrapper: {
     position: 'absolute',
-    bottom: responsiveHeight(20),
+    bottom: responsiveHeight(25),
     left: 0,
     right: 0,
     alignItems: 'center',
@@ -342,7 +315,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    marginVertical: 0,
+    marginVertical: 10,
   },
   rememberArea: {
     flexDirection: 'row',
