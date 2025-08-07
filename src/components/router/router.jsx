@@ -21,6 +21,7 @@ import VerifyLoginAccount from '../../screen/VerifyLoginAccount/VerifyLoginAccou
 import Congratulations from '../../screen/Congratulations/Congratulations';
 import EditProfile from '../../screen/Profile/EditProfile';
 import ManageDownloads from '../../screen/ManageDownloads/ManageDownloads';
+import SubscriptionPlans from '../../screen/SubscriptionPlans/SubscriptionPlans';
 
 const Stack = createNativeStackNavigator();
 
@@ -41,6 +42,7 @@ export default function App() {
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="EditProfile" component={EditProfile} />
         <Stack.Screen name="ManageDownloads" component={ManageDownloads} />
+        <Stack.Screen name="SubscriptionPlans" component={SubscriptionPlans} />
         <Stack.Screen name="AudiobookDetails" component={AudiobookDetails} />
         <Stack.Screen name="Search" component={Search} />
         <Stack.Screen name="ReadBook" component={ReadBook} />

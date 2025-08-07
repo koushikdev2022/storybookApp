@@ -72,7 +72,10 @@ const Profile = () => {
         </View>
 
         <View style={styles.ProfileDetailsListSection}>
-          <TouchableOpacity style={styles.ProfileDetailsListDetails}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('SubscriptionPlans')}
+            style={styles.ProfileDetailsListDetails}
+          >
             <View style={styles.ProfileNavPoint}>
               <View style={styles.ProfileNavPointLeft}>
                 <FontAwesome name="list-alt" size={18} color="#ffffff" />
